@@ -23,16 +23,22 @@ export class ComidasService {
     );
   }
 
-  public postComidas(nuevaComida:any){
-
+  public postComidas(nuevaComida:any):Observable<any>{
+    return this.http.post<any>(`${this.urlComidasPost}`, nuevaComida).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  public deleteComidas(id:string){
-
+  public deleteComidas(id:string): Observable<any>{
+     return this.http.delete<any>(`${this.urlComidasDelete}/${id}`).pipe(
+      catchError(this.handleError)
+     );
   }
 
-  public updateComidas(id:string, nuevaComida:any){
-
+  public updateComidas(id:string, nuevaComida:any): Observable<any>{
+    return this.http.put<any>(`${this.urlComidasUpdate}/${id}`, nuevaComida).pipe(
+      catchError(this.handleError)
+    );
   }
 
 

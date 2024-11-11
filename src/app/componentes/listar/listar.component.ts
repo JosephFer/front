@@ -1,8 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { GetSalasService } from '../../servicios/api/salas.service';
 import { ActivatedRoute } from '@angular/router';
-import { SalasComponent } from '../salas/salas.component';
-import { CinesComponent } from '../cines/cines.component';
 import { GetCinesService } from '../../servicios/api/cines.service';
 
 

@@ -1,0 +1,49 @@
+<mat-card class="card bg-transparent">
+    <div class="card-header">
+        <mat-card-title>
+            Comida:
+            {{comida()?.nombreComida}}
+            <mat-divider/>
+            Identificador:
+            {{comida()?.idComida}}
+        </mat-card-title>
+    </div>
+    <mat-card-content>
+        <div class="row justify-content-between">
+            <div class="col">
+                {{comida()?.idTipoComida}}
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end" class="d-flex justify-content-around">
+        <button
+        class="m-2"
+        mat-flat-button
+        color="accent"
+        [routerLink]="['editar', comida()?.idComida]"
+        >
+        <mat-icon>edit</mat-icon>
+        Editar
+    </button>
+    <button
+    mat-stroked-button
+    color="warn"
+    class="m-2 bg-white"
+    [routerLink]="['/detalle/', comida()?.idComida]"
+  >
+    <mat-icon>visibility</mat-icon>
+    Detalles
+  </button>
+    </mat-card-actions>
+
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    
+        <div class="row mx-auto">
+          <button mat-flat-button color="warn" (click)="eliminarCine()">
+            <mat-icon color="basic">delete</mat-icon>
+            Eliminar
+          </button>
+        </div>
+      </mat-card-footer>
+</mat-card>

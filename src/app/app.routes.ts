@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { ErrorComponent } from './componentes/error/error.component';
 import { MenuComponent } from './componentes/menu/menu.component';
-import { SalasComponent } from './componentes/salas/salas.component';
+import { SalasComponent } from './pages/salas/salas.component';
 
-import { CinesComponent } from './componentes/cines/cines.component';
+import { CinesComponent } from './pages/cines/cines.component';
 import { ListarComponent } from './componentes/listar/listar.component';
 import { CrearComponent } from './componentes/crear/crear.component';
-import { ComidasComponent } from './componentes/comidas/comidas.component';
-import { TiposComidasComponent } from './componentes/tipos-comidas/tipos-comidas.component';
+import { ComidasComponent } from './pages/comidas/comidas.component';
+import { TiposComidasComponent } from './pages/tipos-comidas/tipos-comidas.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' }, 
