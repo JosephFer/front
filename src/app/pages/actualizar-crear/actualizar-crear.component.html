@@ -1,0 +1,19 @@
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    @if (isLoading) {
+        <app-spinner [mensaje]="mensaje"></app-spinner>
+    }@else {
+      <div class="card card-border-primary">
+        <div class="header">
+            <h3 class="card-title text-center text-success"></h3>
+            Formulario para {{titulo}}
+        </div>
+      </div>
+
+      <div class="row col mx-auto">
+        <button class="btn btn-info" [routerLink]="['/comida']">
+            Regresar al listado
+        </button>
+      </div>
+    }
+</div>
+
