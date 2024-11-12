@@ -1,4 +1,10 @@
 <div>
     <app-cabecera></app-cabecera>
-    <router-outlet></router-outlet>
+    <div class="main-container">
+        <app-sidebar class="sidebar"></app-sidebar>
+        <main class="content">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+    
 </div>
