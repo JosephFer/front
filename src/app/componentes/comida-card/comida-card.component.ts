@@ -52,7 +52,10 @@ eliminarCine(){
       if(response.borradoSinMiedo){
         this.toast.success(response.respuesta, 'Realizado');
         this.fueEliminado.emit(true);
+      }else{
+        this.toast.error(response.respuesta, 'No se pudo hacer :((');
       }
+
     }, (isError: HttpErrorResponse)=>{
       if(isError){
         this.toast.error(isError.error.message, isError.statusText);

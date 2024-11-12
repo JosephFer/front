@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-spinner',
   standalone: true,
-  imports: [],
+  imports: [MatProgressSpinner],
   templateUrl: './spinner.component.html',
   styleUrl: './spinner.component.css'
 })
 export class SpinnerComponent {
+  mensaje = input.required<string>();
 
 }

@@ -30,9 +30,7 @@ export class ComidasService {
   }
 
   public deleteComidas(id:string): Observable<any>{
-     return this.http.delete<any>(`${this.urlComidasDelete}/${id}`).pipe(
-      catchError(this.handleError)
-     );
+     return this.http.delete<any>(`${this.urlComidasDelete}/${id}`);
   }
 
   public updateComidas(id:string, nuevaComida:any): Observable<any>{

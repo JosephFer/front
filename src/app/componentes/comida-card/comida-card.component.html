@@ -9,13 +9,13 @@
         </mat-card-title>
     </div>
     <mat-card-content>
-        <div class="row justify-content-between">
+        <div class="row justify-content-center">
             <div class="col">
                 {{comida()?.idTipoComida}}
             </div>
         </div>
     </mat-card-content>
-    <mat-card-actions align="end" class="d-flex justify-content-around">
+    <mat-card-actions align="end" class="d-md-flex justify-content-center">
         <button
         class="m-2"
         mat-flat-button
@@ -25,19 +25,10 @@
         <mat-icon>edit</mat-icon>
         Editar
     </button>
-    <button
-    mat-stroked-button
-    color="warn"
-    class="m-2 bg-white"
-    [routerLink]="['/detalle/', comida()?.idComida]"
-  >
-    <mat-icon>visibility</mat-icon>
-    Detalles
-  </button>
     </mat-card-actions>
 
     <mat-card-footer>
-        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
     
         <div class="row mx-auto">
           <button mat-flat-button color="warn" (click)="eliminarCine()">
