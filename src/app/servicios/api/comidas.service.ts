@@ -18,25 +18,19 @@ export class ComidasService {
   }
 
   public getComidas(page:number, tamPag:number): Observable<any>{
-    return this.http.get<any>(`${this.urlComidasGet}?tamPag=${tamPag}&page=${page}`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<any>(`${this.urlComidasGet}?tamPag=${tamPag}&page=${page}`);
   }
 
   public postComidas(nuevaComida:any):Observable<any>{
-    return this.http.post<any>(`${this.urlComidasPost}`, nuevaComida).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.post<any>(`${this.urlComidasPost}`, nuevaComida);
   }
 
   public deleteComidas(id:string): Observable<any>{
      return this.http.delete<any>(`${this.urlComidasDelete}/${id}`);
   }
 
-  public updateComidas(id:string, nuevaComida:any): Observable<any>{
-    return this.http.put<any>(`${this.urlComidasUpdate}/${id}`, nuevaComida).pipe(
-      catchError(this.handleError)
-    );
+  public updateComidas(nuevaComida:any): Observable<any>{
+    return this.http.put<any>(`${this.urlComidasUpdate}`,nuevaComida);
   }
 
  

@@ -9,6 +9,7 @@ import { CrearComponent } from './componentes/crear/crear.component';
 import { ComidasComponent } from './pages/comidas/comidas.component';
 import { TiposComidasComponent } from './pages/tipos-comidas/tipos-comidas.component';
 import { ActualizarCrearComponent } from './pages/actualizar-crear/actualizar-crear.component';
+import { ButacasComponent } from './pages/butacas/butacas.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' }, 
@@ -28,6 +29,10 @@ export const routes: Routes = [
     {path: 'editar/:idComida', component:ActualizarCrearComponent},
 
     {path: 'listar', component: ListarComponent},
+
+    {path: 'butacas', component: ButacasComponent},
+    {path: 'tiposComida', component: TiposComidasComponent},
+
     {path: '**', component: ErrorComponent},
     
 

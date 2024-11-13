@@ -27,19 +27,21 @@ import { CommonModule } from '@angular/common';
 export class ActualizarCrearComponent implements OnInit, OnDestroy{
   
   titulo: string = "crear nueva comida";
-  private crearComida?:any;
-  private comida?:any;
+  private crearComida:any;
+  private comida:any;
   isLoading = false;
   mensaje = "consultando los datos de comida";
   public formComida: FormGroup;
   tamPag = 1;
   page = 0;
 
+  esModoEdicion: boolean = false; 
+
   constructor(private activeRoute:ActivatedRoute, private route:Router, private comidaService:ComidasService, 
     private toast:ToastrService, private fb:FormBuilder){
     this.formComida = this.fb.group({
-      nombre:['', [Validators.required, Validators.minLength(5)]],
-      tipo:['', [Validators.required, Validators.minLength(5)]]
+      nombreComida:['', [Validators.required, Validators.minLength(5)]],
+      idTipoComida:['', [Validators.required, Validators.minLength(1)]]
     });
   };
 
@@ -47,11 +49,17 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
       const id = this.activeRoute.snapshot.paramMap.get('idComida');
       if(id){
         this.isLoading = true;
+        this.esModoEdicion = true; // Modo edición activado
         const page = Number(id);
         this.comidaService.getComidas(page, this.tamPag).subscribe(
           (response)=>{
-            this.comida = response.resultado;
-            this.titulo = "Editar datos de la comida";
+            console.log(id);
+            console.log(response);
+
+            this.comida = response.resultado[0];
+            this.titulo = "editar datos de la comida";
+
+            console.log("Comida Data:", this.comida);
             this.formComida.patchValue(this.comida);
             setTimeout(() => {
               this.isLoading = false;
@@ -74,8 +82,11 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
       
   }
   onSubmit(){
+    console.log("onSubmit: comida:", this.comida);
+    console.log("onSubmit: comida.idComida:", this.comida.idComida);
+    console.log("onSubmit: tipo de idComida:", typeof this.comida.idComida);
     if(this.formComida.valid){
-      this.comida?.idComida ? this.editarComida(): this.nuevaComida;
+      this.esModoEdicion ? this.editarComida() : this.nuevaComida();
     }else{
       this.toast.warning("El formulario no es correcto", "Verifica");
       this.formComida.reset();
@@ -83,6 +94,7 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
   }
   private nuevaComida(){
     this.crearComida = this.formComida.value;
+    console.log("creando comida");
     if(this.crearComida){
       this.comidaService.postComidas(this.crearComida).subscribe(
         (response)=>{
@@ -104,9 +116,13 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
   }
 
   private editarComida(){
-    this.crearComida = this.formComida.value;
+    this.crearComida = { 
+      ...this.formComida.value, 
+      idComida: this.comida?.idComida 
+   };
+    console.log("Editando comida con ID:", this.comida.idComida);  // Verificar si se muestra el ID correcto
     if(this.crearComida){
-      this.comidaService.updateComidas(this.comida!.idComida,this.crearComida).subscribe(
+      this.comidaService.updateComidas(this.crearComida).subscribe(
         (response)=>{
           if(response.actualizado){
             this.toast.success(response.respuesta);
@@ -123,5 +139,19 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
         }
       )
     }
+  }
+
+  invalidForm(campo: string): boolean {
+    if (
+      this.formComida.get(campo)?.hasError &&
+      this.formComida.get(campo)?.touched
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  messageError(campo: string): string {
+    return `El campo ${campo} no es correcto o está vacío`;
   }
 }

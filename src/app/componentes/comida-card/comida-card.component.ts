@@ -11,6 +11,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 import { filter, switchMap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { ButacasComponent } from '../../pages/butacas/butacas.component';
 @Component({
   selector: 'app-comida-card',
   standalone: true,
@@ -33,6 +34,7 @@ private dialog = inject(MatDialog);
 private toast = inject(ToastrService);
 
 private comidaService  = inject(ComidasService);
+
 
 fueEliminado = output<boolean>();
 

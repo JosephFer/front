@@ -10,9 +10,42 @@
       </div>
 
       <div class="row col mx-auto">
-        <button class="btn btn-info" [routerLink]="['/comida']">
-            Regresar al listado
-        </button>
+        <button class="btn btn-info w-50" [routerLink]="['/comida']">Regresar al listado</button>
+      </div>
+
+      <div class="card-body">
+        <div class="card-text">
+          <form [formGroup]="formComida" (ngSubmit)="onSubmit()">
+            <div class="form-group">  
+              <div class="row">
+                <div class="col">
+                  <mat-form-field>
+                    <mat-label>Nombre de la comida</mat-label>
+                    <input type="text" matInput formControlName="nombreComida">
+                  </mat-form-field>
+                  @if (formComida.get('nombreComida')?.hasError('required')&&formComida.get('nombreComida')?.touched) {
+                    <mat-error> El campo no correcto o esta vacío</mat-error>
+                  }
+                </div>
+                <div class="col">
+                  <mat-form-field>
+                    <mat-label> # tipo comida</mat-label>
+                    <input type="text" matInput formControlName="idTipoComida">
+                  </mat-form-field>
+                  @if (formComida.get('idTipoComida')?.hasError('required')&&formComida.get('idTipoComida')?.touched) {
+                    <mat-error> El campo no correcto o esta vacío</mat-error>
+                  }
+                </div>
+              </div>
+            
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" mat-raised-button color="basic" class="bg-info">
+                Guardar datos
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     }
 </div>
