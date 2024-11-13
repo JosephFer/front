@@ -5,11 +5,13 @@ import { SalasComponent } from './componentes/salas/salas.component';
 import { ListarComponent } from './componentes/listar/listar.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { MoviesComponent } from './componentes/movies/movies.component';
+import { PersonasComponent } from './componentes/personas/personas.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'home', component: HomeComponent},
     {path: 'movies', component: MoviesComponent},
+    {path: 'persons', component: PersonasComponent},
     {path: 'rooms', component: SalasComponent, children: 
         [{path: 'listar', component: ListarComponent}]
     },
