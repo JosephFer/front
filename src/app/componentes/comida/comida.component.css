@@ -1,0 +1,35 @@
+.comida-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.title{
+    font-size: 3.5em;
+    font-weight: lighter;
+    width: fit-content;
+    text-align: center;
+    margin: 5px auto 0;
+}
+
+.carouselContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 200px);
+  }
+
+.card-title{
+    font-weight: bold;
+}
