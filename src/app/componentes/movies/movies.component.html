@@ -1,5 +1,8 @@
 <div class="movie-main">
 <h6 class="title">Peliculas</h6>
+<button type="button" class="btn btn-primary" [routerLink]="['/add']">Agregar</button>
+
+
 <div class="col carouselContainer">
     <div class="row">
         <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -10,6 +13,7 @@
                             <div class="card-body text-left">
                                 <h5 class="card-title">{{ movie.nombrePelicula }}</h5>
                                 <p class="card-text">{{ movie.duracionPelicula }}<br/>{{ movie.idGenero }}</p>
+                                <button type="button" class="btn btn-primary" [routerLink]="['/edit/{{movie.id}}']">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -26,5 +30,7 @@
             </button>
         </div>
     </div>
+
 </div>
 </div>
+
