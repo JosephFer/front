@@ -13,7 +13,7 @@
                             <div class="card-body text-left">
                                 <h5 class="card-title">{{ movie.nombrePelicula }}</h5>
                                 <p class="card-text">{{ movie.duracionPelicula }}<br/>{{ movie.idGenero }}</p>
-                                <button type="button" class="btn btn-primary" [routerLink]="['/edit/{{movie.id}}']">Editar</button>
+                                <button type="button" class="btn btn-primary" [routerLink]="['/edit/',movie.idPelicula]">Editar</button>
                             </div>
                         </div>
                     </div>
