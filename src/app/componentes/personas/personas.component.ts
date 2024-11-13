@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { PersonasService } from '../../services/api/personas.service';
 import { Personas } from '../../interface/Personas';
 
@@ -12,7 +12,7 @@ import { Personas } from '../../interface/Personas';
 })
 export class PersonasComponent implements OnInit {
   
-  private personasService = Inject(PersonasService);
+  private personasService: PersonasService = inject(PersonasService);
 
   persons_array: Personas[] = [];
   personsChunks: Personas[][] = [];
