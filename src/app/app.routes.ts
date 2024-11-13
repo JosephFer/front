@@ -11,7 +11,15 @@ export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'home', component: HomeComponent},
     {path: 'movies', component: MoviesComponent},
-    {path: 'persons', component: PersonasComponent},
+    {   path: 'persons', 
+        component: PersonasComponent,
+        children: [
+            {path: 'listar', component: },
+            {path: 'buscar', component: },
+            {path: 'agregar', component: },
+            {path: 'editar', component: },
+            {path: 'borrar', component: },
+        ] },
     {path: 'rooms', component: SalasComponent, children: 
         [{path: 'listar', component: ListarComponent}]
     },
