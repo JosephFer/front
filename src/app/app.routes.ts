@@ -15,18 +15,10 @@ import { AddEditProductComponent } from './componentes/add_movie_component/add-e
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'home', component: HomeComponent},
-
     {path: 'movies', component: MoviesComponent},
-    {path: 'room', component: SalasComponent, children: 
     { path: 'add', component: AddEditProductComponent },
     { path: 'edit/:id', component: AddEditProductComponent },
     {path: 'rooms', component: SalasComponent, children: 
-
-    { path: 'movies', component: MoviesComponent},
-    { path: 'add', component: AddEditProductComponent },
-    { path: 'edit/:id', component: AddEditProductComponent },
-    {path: 'rooms', component: SalasComponent, children: 
-
         [{path: 'listar', component: ListarComponent}]
     },
     {path: 'menu', component: ComidaComponent},
