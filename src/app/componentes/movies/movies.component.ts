@@ -23,13 +23,11 @@ export class MoviesComponent implements OnInit {
   movieChunks: Movie[][] = [];
 
   constructor() {
-
   }
 
   redirectToAdd() {
     window.location.href = 'http://localhost:8071/add';
   }
-
 
   ngOnInit() {
     this.fetchMovies();

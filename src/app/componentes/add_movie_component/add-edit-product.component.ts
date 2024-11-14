@@ -42,9 +42,10 @@ export class AddEditProductComponent implements OnInit {
 
   addMovie(): void {
     this.movieServ.addMovie(this.movie).subscribe({
-      next: (response) => {
+      next: () => {
         this.snackBar.open('Película creada exitosamente', 'Cerrar', {
-          verticalPosition: 'top',
+          //verticalPosition: 'top',
+          panelClass: ['snackbar'],
           duration: 3000
         });
         this.router.navigate(['/']);
@@ -52,6 +53,7 @@ export class AddEditProductComponent implements OnInit {
       error: (error) => {
         this.snackBar.open('Error al crear la película', 'Cerrar', {
           //verticalPosition: 'top',
+          panelClass: ['snackbar'],
           duration: 3000
         });
       }
