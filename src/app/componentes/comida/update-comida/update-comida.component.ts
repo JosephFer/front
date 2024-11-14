@@ -4,7 +4,7 @@ import { ComidaService } from '../../../services/api/comida/comida.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-comida',
@@ -23,12 +23,13 @@ export class UpdateComidaComponent implements OnInit{
     idCine : 0
   }
 
-  router: any;
+  idMenu_p = 0;
 
   constructor(private comidaService : ComidaService, 
               private location: Location, 
               private snackBar : MatSnackBar,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private router : Router) {}
 
   volver() : void {
     this.location.back();
@@ -39,6 +40,7 @@ export class UpdateComidaComponent implements OnInit{
     const idMenu = Number(this.route.snapshot.paramMap.get('idMenu'));
     if (!isNaN(idMenu)) {
       this.menuActualizado.idMenu = idMenu;
+      this.idMenu_p = idMenu;
     } else {
       this.snackBar.open('ID de menú no válido', 'Cerrar', {
         verticalPosition: 'top',
@@ -61,7 +63,7 @@ export class UpdateComidaComponent implements OnInit{
           verticalPosition: 'top',
           duration: 3000
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/menu']);
       },
       error: (error) => {
         this.snackBar.open('Error al actualizar el menu', 'Cerrar', {
@@ -72,5 +74,27 @@ export class UpdateComidaComponent implements OnInit{
     });
   }
 
+  eliminarMenu() : void {
+    this.comidaService.deleteMenu(this.idMenu_p).subscribe({
+      next: (response) => {
+        console.log('Menú eliminado:', response);
+
+        this.snackBar.open('Menu eliminado exitosamente', 'Cerrar', {
+          verticalPosition: 'top',
+          duration: 3000
+        });
+
+        setTimeout(() => {
+          this.router.navigate(['/menu']);
+        }, 3000);
+      },
+      error: (error) => {
+        this.snackBar.open('Error al eliminar el menu', 'Cerrar', {
+          //verticalPosition: 'top',
+          duration: 3000
+        });
+      }
+    })
+  }
 
 }
