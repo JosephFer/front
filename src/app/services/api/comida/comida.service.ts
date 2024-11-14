@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Menu } from '../../../interface/menu';
-import { CREATE_COMIDA, GET_ALL_COMIDA } from '../../../utilities/domains/comida/COMIDA_URL';
+import { CREATE_COMIDA, GET_ALL_COMIDA, UPDATE_COMIDA } from '../../../utilities/domains/comida/COMIDA_URL';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,9 @@ export class ComidaService {
 
   addComida(comida_p : Menu): Observable<any> {
     return this.http.post(CREATE_COMIDA, comida_p);
+  }
+
+  updateComida(comida_p : Menu) : Observable<any> {
+    return this.http.put(UPDATE_COMIDA, comida_p)
   }
 }
