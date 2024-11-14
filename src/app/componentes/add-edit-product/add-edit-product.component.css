@@ -28,11 +28,8 @@
     /* Añade margen a la izquierda del último botón */
 }
 
-.mat-snack-bar-container {
+/*.mat-snack-bar-container {
     z-index: 10000 !important;
-    /* Asegúrate de que la snackbar tenga un z-index alto */
     position: fixed !important;
-    /* Asegúrate de que la snackbar esté fija en la pantalla */
     top: 0 !important;
-    /* Asegúrate de que la snackbar esté en la parte superior */
-}
+}*/

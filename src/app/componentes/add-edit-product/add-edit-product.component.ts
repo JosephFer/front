@@ -51,7 +51,7 @@ export class AddEditProductComponent implements OnInit {
       },
       error: (error) => {
         this.snackBar.open('Error al crear la película', 'Cerrar', {
-          verticalPosition: 'top',
+          //verticalPosition: 'top',
           duration: 3000
         });
       }
