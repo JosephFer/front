@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Comida } from '../../../interface/comida';
+import { Menu } from '../../../interface/menu';
 import { CREATE_COMIDA, GET_ALL_COMIDA } from '../../../utilities/domains/comida/COMIDA_URL';
 
 @Injectable({
@@ -11,13 +11,13 @@ export class ComidaService {
 
   constructor(private http: HttpClient) { }
 
-  getAllComida(): Observable<Comida[]> {
-    const r = this.http.get<Comida[]>(GET_ALL_COMIDA);
+  getAllComida(): Observable<Menu[]> {
+    const r = this.http.get<Menu[]>(GET_ALL_COMIDA);
     console.log(r);
     return r;
   }
 
-  addComida(comida_p : Comida): Observable<any> {
+  addComida(comida_p : Menu): Observable<any> {
     return this.http.post(CREATE_COMIDA, comida_p);
   }
 }

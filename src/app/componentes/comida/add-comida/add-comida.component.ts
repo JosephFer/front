@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Comida } from '../../../interface/comida';
+import { Menu } from '../../../interface/menu';
 import { ComidaService } from '../../../services/api/comida/comida.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-comida',
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './add-comida.component.css'
 })
 export class AddComidaComponent {
-  nuevaComida : Comida = {
+
+  nuevoMenu : Menu = {
     idMenu : 0,
     precio : 0,
     cantidadDisponible : 0,
@@ -20,10 +22,14 @@ export class AddComidaComponent {
     idCine : 0
   }
 
-  constructor(private comidaService : ComidaService) {}
+  constructor(private comidaService : ComidaService, private location: Location) {}
 
-  crearComida() {
-    this.comidaService.addComida(this.nuevaComida).subscribe(
+  volver() : void {
+    this.location.back();
+  }
+
+  crearMenu() {
+    this.comidaService.addComida(this.nuevoMenu).subscribe(
       response => {
         console.log('Comida creada:', response);
         // Aquí puedes hacer algo después de crear la comida, como mostrar un mensaje o limpiar el formulario

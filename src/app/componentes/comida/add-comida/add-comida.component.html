@@ -3,14 +3,15 @@
         <div class="card text-white mb-3 edit-container" style="max-width: 20rem;">
             <div class="card-header text-center">Agregar Pelicula</div>
             <div class="card-body">
-              <form (ngSubmit)="addMovie()">
-                <input type="text" class="form-control" placeholder="nombre Pelicula" [(ngModel)]="movie.nombrePelicula" name="nombrePelicula">
-                <input type="text" class="form-control mt-2" placeholder="duracion" [(ngModel)]="movie.duracionPelicula" name="duracionPelicula">
-                <input type="text" class="form-control mt-2" placeholder="id genero" [(ngModel)]="movie.idGenero" name="idGenero">
+              <form (ngSubmit)="crearMenu()">
+                <input type="text" class="form-control" placeholder="precio" [(ngModel)]="nuevoMenu.precio" name="precio">
+                <input type="text" class="form-control mt-2" placeholder="cantidadDisponible" [(ngModel)]="nuevoMenu.cantidadDisponible" name="cantidadDisponible">
+                <input type="text" class="form-control mt-2" placeholder="idComida" [(ngModel)]="nuevoMenu.idComida" name="idComida">
+                <input type="text" class="form-control mt-2" placeholder="idCine" [(ngModel)]="nuevoMenu.idCine" name="idCine">
                 <div class="row mt-3">
                   <div class="col-12 d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <button type="button" class="btn btn-success">Volver</button>
+                    <button type="button" class="btn btn-success" (click)="volver()">Volver</button>
                   </div>
                 </div>
               </form>

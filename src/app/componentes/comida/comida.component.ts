@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ComidaService } from '../../services/api/comida/comida.service';
-import { Comida } from '../../interface/comida';
+import { Menu } from '../../interface/menu';
 
 @Component({
   selector: 'app-comida',
@@ -11,15 +11,15 @@ import { Comida } from '../../interface/comida';
   templateUrl: './comida.component.html',
   styleUrl: './comida.component.css'
 })
-export class ComidaComponent implements OnInit{
+export class ComidaComponent implements OnInit{    
 
-  private comidaService = inject(ComidaService);
-  com_array : Comida[] = [];
-  comidaChunks: Comida[][] = [];
+  private comidaService = inject(ComidaService);    
+  com_array : Menu[] = [];
+  comidaChunks: Menu[][] = [];    
 
-  constructor(){
+  constructor(){    
 
-  }
+  }    
 
   ngOnInit(): void {
     this.fetchComida();
