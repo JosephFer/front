@@ -5,7 +5,7 @@ import { SalasComponent } from './componentes/salas/salas.component';
 import { ListarComponent } from './componentes/listar/listar.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { MoviesComponent } from './componentes/movies/movies.component';
-import { AddEditProductComponent } from './componentes/add-edit-product/add-edit-product.component';
+import { AddEditProductComponent } from './componentes/add_movie_component/add-edit-product.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
