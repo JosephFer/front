@@ -4,6 +4,8 @@ import { ComidaService } from '../../../services/api/comida/comida.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-comida',
@@ -21,22 +23,33 @@ export class AddComidaComponent {
     idComida : 0,
     idCine : 0
   }
+  router: any;
 
-  constructor(private comidaService : ComidaService, private location: Location) {}
+  constructor(private comidaService : ComidaService, private location: Location, private snackBar : MatSnackBar) {}
 
   volver() : void {
     this.location.back();
   }
 
-  crearMenu() {
-    this.comidaService.addComida(this.nuevoMenu).subscribe(
-      response => {
-        console.log('Comida creada:', response);
-        // Aquí puedes hacer algo después de crear la comida, como mostrar un mensaje o limpiar el formulario
+  onNoClick(): void {
+    this.router.navigate(['/']);
+  }
+
+  crearMenu(): void {
+    this.comidaService.addComida(this.nuevoMenu).subscribe({
+      next: (response) => {
+        this.snackBar.open('Menu creado exitosamente', 'Cerrar', {
+          verticalPosition: 'top',
+          duration: 3000
+        });
+        this.router.navigate(['/']);
       },
-      error => {
-        console.error('Error al crear la comida:', error);
+      error: (error) => {
+        this.snackBar.open('Error al crear la película', 'Cerrar', {
+          //verticalPosition: 'top',
+          duration: 3000
+        });
       }
-    );
+    });
   }
 }
