@@ -10,6 +10,7 @@ import { MoviesComponent } from './componentes/movies/movies.component';
 
 import { ComidaComponent } from './componentes/comida/comida.component';
 import { AddEditProductComponent } from './componentes/add_movie_component/add-edit-product.component';
+import { AddComidaComponent } from './componentes/comida/add-comida/add-comida.component';
 
 
 export const routes: Routes = [
@@ -22,6 +23,7 @@ export const routes: Routes = [
         [{path: 'listar', component: ListarComponent}]
     },
     {path: 'menu', component: ComidaComponent},
+    {path: 'menu/add', component: AddComidaComponent},
     {path: 'listar', component: ListarComponent},
     {path: '**', component: ErrorComponent},
 ];
