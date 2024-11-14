@@ -2,24 +2,28 @@
     <h6 class="title">Comidas</h6>
     <div>
         <li class="nav-item" style="list-style-type: none;">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/movies']">
-                <i class="fa-solid fa-plus"></i>    
-              Agregar Comida
+            <a class="nav-link active" aria-current="page" [routerLink]="['/menu/add']">
+                <i class="fa-solid fa-plus"></i>
+                Agregar Comida
             </a>
-          </li>
+        </li>
     </div>
-    
+
     <div class="col carouselContainer">
         <div class="row">
             <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div *ngFor="let chunk of comidaChunks; let i = index" class="carousel-item" [class.active]="i === 0">
+
+                    <div *ngFor="let chunk of comidaChunks; let i = index" class="carousel-item"
+                        [class.active]="i === 0">
                         <div class="d-flex justify-content-center ">
                             <div *ngFor="let comida of chunk" class="card mx-2" style="width: 18rem;">
                                 <div class="card-body text-left">
                                     <h5 class="card-title">Id menu {{ comida.idMenu }}</h5>
-                                    <p class="card-text">comida: {{ comida.idComida }}<br/>Precio: {{ comida.precio }}</p>
-                                    <p class="card-text">Cantidad disponible: {{ comida.cantidadDisponible }}<br/>idCine: {{ comida.idCine }}</p>
+                                    <p class="card-text">comida: {{ comida.idComida }}<br />Precio: {{ comida.precio }}
+                                    </p>
+                                    <p class="card-text">Cantidad disponible: {{ comida.cantidadDisponible
+                                        }}<br />idCine: {{ comida.idCine }}</p>
                                 </div>
                             </div>
                         </div>
@@ -37,5 +41,4 @@
             </div>
         </div>
     </div>
-    </div>
-    
+</div>
