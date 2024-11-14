@@ -1,0 +1,61 @@
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    @if (isLoading) {
+        <app-spinner [mensaje]="mensaje"></app-spinner>
+    }@else {
+      <div class="card card-border-primary">
+        <div class="header">
+            <h3 class="card-title text-center text-success"></h3>
+            Formulario para {{titulo}}
+        </div>
+      </div>
+
+      <div class="row col mx-auto">
+        <button class="btn btn-info w-50" [routerLink]="['/butacas']">Regresar al listado</button>
+      </div>
+
+      <div class="card-body">
+        <div class="card-text">
+          <form [formGroup]="formButaca" (ngSubmit)="onSubmit()">
+            <div class="form-group">  
+              <div class="row">
+                <div class="col">
+                  <mat-form-field>
+                    <mat-label>Letra de la fila</mat-label>
+                    <input type="text" matInput formControlName="fila">
+                  </mat-form-field>
+                  @if (formButaca.get('fila')?.hasError('required')&& formButaca.get('fila')?.touched) {
+                    <mat-error> El campo no correcto o esta vacío</mat-error>
+                  }
+                </div>
+                <div class="col">
+                  <mat-form-field>
+                    <mat-label> # de la columna</mat-label>
+                    <input type="text" matInput formControlName="columna">
+                  </mat-form-field>
+                  @if (formButaca.get('columna')?.hasError('required')&&formButaca.get('columna')?.touched) {
+                    <mat-error> El campo no correcto o esta vacío</mat-error>
+                  }
+                </div>
+
+                <div class="col">
+                    <mat-form-field>
+                      <mat-label> # de la sala</mat-label>
+                      <input type="text" matInput formControlName="idSala">
+                    </mat-form-field>
+                    @if (formButaca.get('idSala')?.hasError('required')&&formButaca.get('idSala')?.touched) {
+                      <mat-error> El campo no correcto o esta vacío</mat-error>
+                    }
+                  </div>
+              </div>
+            
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" mat-raised-button color="basic" class="bg-info">
+                Guardar datos
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    }
+</div>

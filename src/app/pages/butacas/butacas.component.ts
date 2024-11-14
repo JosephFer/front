@@ -23,7 +23,7 @@ export class ButacasComponent implements OnInit, OnDestroy{
   constructor(private butacasService:ButacasService){};
 
   ngOnInit(): void {
-      
+    this.Obtenertodo();  
   }
 
   ngOnDestroy(): void {
@@ -32,7 +32,7 @@ export class ButacasComponent implements OnInit, OnDestroy{
 
   Obtenertodo() {
     this.butacasService.getButacas(this.paginaActual, this.limite).subscribe(x=>{
-      this.butacas.set(x.resultado);
+      this.butacas.set(x.butacas);
       this.totalElementos = x.totalButacas
       setTimeout(() => {
         this.isLoading.set(false);

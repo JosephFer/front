@@ -20,16 +20,16 @@ export class ButacasService {
     return this.http.get<any>(`${this.urlButacasGet}?tamPag=${tamPag}&page=${page}`);
   }
 
-  public postButacas(nuevaComida:any):Observable<any>{
-    return this.http.post<any>(`${this.urlButacasPost}`, nuevaComida);
+  public postButacas(nuevaButaca:any):Observable<any>{
+    return this.http.post<any>(`${this.urlButacasPost}`, nuevaButaca);
   }
 
   public deleteButacas(id:string): Observable<any>{
      return this.http.delete<any>(`${this.urlButacasDelete}/${id}`);
   }
 
-  public updateButacas(id:string, nuevaComida:any): Observable<any>{
-    return this.http.put<any>(`${this.urlButacasUpdate}/${id}`, nuevaComida);
+  public updateButacas(nuevaButaca:any): Observable<any>{
+    return this.http.put<any>(`${this.urlButacasUpdate}`, nuevaButaca);
   }
 
 }

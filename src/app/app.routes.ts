@@ -10,6 +10,7 @@ import { ComidasComponent } from './pages/comidas/comidas.component';
 import { TiposComidasComponent } from './pages/tipos-comidas/tipos-comidas.component';
 import { ActualizarCrearComponent } from './pages/actualizar-crear/actualizar-crear.component';
 import { ButacasComponent } from './pages/butacas/butacas.component';
+import { ActualizarCrearButacasComponent } from './pages/actualizar-crear-butacas/actualizar-crear-butacas.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' }, 
@@ -23,10 +24,13 @@ export const routes: Routes = [
     {path: 'comida', component: ComidasComponent},
 
     {path: 'nuevo', component:ActualizarCrearComponent},
+    {path: 'nuevoB', component:ActualizarCrearButacasComponent},
 
     {path: 'tipoComida', component: TiposComidasComponent},
 
     {path: 'editar/:idComida', component:ActualizarCrearComponent},
+
+    {path: 'editarB/:idButaca', component:ActualizarCrearButacasComponent},
 
     {path: 'listar', component: ListarComponent},
 

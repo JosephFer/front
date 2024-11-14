@@ -82,9 +82,6 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
       
   }
   onSubmit(){
-    console.log("onSubmit: comida:", this.comida);
-    console.log("onSubmit: comida.idComida:", this.comida.idComida);
-    console.log("onSubmit: tipo de idComida:", typeof this.comida.idComida);
     if(this.formComida.valid){
       this.esModoEdicion ? this.editarComida() : this.nuevaComida();
     }else{
@@ -99,11 +96,11 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
       this.comidaService.postComidas(this.crearComida).subscribe(
         (response)=>{
           if(response.creado){
-            this.toast.success(response.respuesta);
+            this.toast.success(response.respuesta, "Realizado");
             this.formComida.reset();
             this.route.navigate(['/home']);
           }else{
-            this.toast.error(response.respuesta);
+            this.toast.error(response.respuesta, ":(");
           }
         },
         (isError: HttpErrorResponse)=>{
@@ -125,11 +122,11 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
       this.comidaService.updateComidas(this.crearComida).subscribe(
         (response)=>{
           if(response.actualizado){
-            this.toast.success(response.respuesta);
+            this.toast.success(response.respuesta, "Realizado");
             this.formComida.reset();
             this.route.navigate(['/home']);
           }else{
-            this.toast.error(response.respuesta);
+            this.toast.error(response.respuesta, ":(");
           }
         },
         (isError: HttpErrorResponse)=>{

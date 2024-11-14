@@ -1,40 +1,83 @@
 <mat-card class="card bg-transparent">
-    <div class="card-header">
-        <mat-card-title>
-            Comida:
-            {{comida()?.nombreComida}}
-            <mat-divider/>
-            Identificador:
-            {{comida()?.idComida}}
-        </mat-card-title>
-    </div>
-    <mat-card-content>
-        <div class="row justify-content-center">
-            <div class="col">
-                {{comida()?.idTipoComida}}
+    @if (this.ruta.url === '/comida') {
+        <div class="card-header">
+     
+            <mat-card-title>
+                Comida:
+                {{comida()?.nombreComida}}
+                <mat-divider/>
+                Identificador:
+                {{comida()?.idComida}}
+            </mat-card-title>
+        </div>
+        <mat-card-content>
+            <div class="row justify-content-center">
+                <div class="col">
+                    {{comida()?.idTipoComida}}
+                </div>
             </div>
-        </div>
-    </mat-card-content>
-    <mat-card-actions align="end" class="d-md-flex justify-content-center">
-        <button
-        class="m-2"
-        mat-flat-button
-        color="accent"
-        [routerLink]="['/editar', comida()?.idComida]"
-        >
-        <mat-icon>edit</mat-icon>
-        Editar
-    </button>
-    </mat-card-actions>
-
-    <mat-card-footer>
-        <mat-progress-bar mode="buffer"></mat-progress-bar>
+        </mat-card-content>
+        <mat-card-actions align="end" class="d-md-flex justify-content-center">
+            <button
+            class="m-2"
+            mat-flat-button
+            color="accent"
+            [routerLink]="['/editar', comida()?.idComida]"
+            >
+            <mat-icon>edit</mat-icon>
+            Editar
+        </button>
+        </mat-card-actions>
     
-        <div class="row mx-auto">
-          <button mat-flat-button color="warn" (click)="eliminarCine()">
-            <mat-icon color="basic">delete</mat-icon>
-            Eliminar
-          </button>
+        <mat-card-footer>
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+        
+            <div class="row mx-auto">
+              <button mat-flat-button color="warn" (click)="eliminarCine()">
+                <mat-icon color="basic">delete</mat-icon>
+                Eliminar
+              </button>
+            </div>
+          </mat-card-footer>
+    }@else{
+        <div class="card-header">
+            <mat-card-title>
+                Sala:
+                {{butaca()?.idSala}}
+                <mat-divider/>
+                Identificador:
+                {{butaca()?.idButaca}}
+            </mat-card-title>
         </div>
-      </mat-card-footer>
+        <mat-card-content>
+            <div class="row justify-content-between">
+                <div class="col"><strong>Fila: </strong>{{butaca()?.fila}}</div>    
+                <div class="col"> <strong>columna:</strong>{{butaca()?.columna}}</div>
+               
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end" class="d-md-flex justify-content-center">
+            <button
+            class="m-2"
+            mat-flat-button
+            color="accent"
+            [routerLink]="['/editarB', butaca()?.idButaca]"
+            >
+            <mat-icon>edit</mat-icon>
+            Editar
+        </button>
+        </mat-card-actions>
+    
+        <mat-card-footer>
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+        
+            <div class="row mx-auto">
+              <button mat-flat-button color="warn" (click)="eliminarButaca()">
+                <mat-icon color="basic">delete</mat-icon>
+                Eliminar
+              </button>
+            </div>
+          </mat-card-footer>
+    }
+ 
 </mat-card>

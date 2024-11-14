@@ -34,15 +34,6 @@ export class ComidasComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
      
   }
-  eliminado(x:boolean){
-    if(x){
-      this.isLoading.set(true);
-      setTimeout(()=>{
-        this.Obtenertodo();
-      },1500);
-    }
-  }
-
   Obtenertodo() {
     this.comidasService.getComidas(this.paginaActual, this.limite).subscribe(x=>{
       this.comidas.set(x.resultado);
@@ -52,6 +43,16 @@ export class ComidasComponent implements OnInit, OnDestroy{
       }, 1400);
     })
   }
+
+  eliminado(x:boolean){
+    if(x){
+      this.isLoading.set(true);
+      setTimeout(()=>{
+        this.Obtenertodo();
+      },1500);
+    }
+  }
+
 
   cambiarPagina(nuevaPagina: number): void {
     this.paginaActual = nuevaPagina;
