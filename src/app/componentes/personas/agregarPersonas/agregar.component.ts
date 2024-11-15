@@ -11,11 +11,13 @@ import { CineService } from '../../../services/api/cine.service';
 import { Cines } from '../../../interface/Cines';
 import { UsuariosService } from '../../../services/api/usuarios.service';
 import { Usuarios } from '../../../interface/Usuarios';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './agregar.component.html',
   styleUrl: './agregar.component.css'
 })
@@ -42,11 +44,39 @@ export class AgregarComponent implements OnInit{
   private usuariosService: UsuariosService = inject(UsuariosService);
   usuarios_array: Usuarios[] = [];
 
+  constructor(private personasService: PersonasService, 
+    private router: Router,
+    private snackBar: MatSnackBar) {}
+
   ngOnInit(): void {
     this.getAllCargos();
     this.getAllUbicaciones();
     this.getAllCines();
     this.getAllUsuarios();
+
+  }
+
+  onNoClick(): void {
+    this.router.navigate(['/']);
+  }
+  
+  agregarPersona() {
+    this.personasService.addPerson(this.nuevaPersona).subscribe({
+      next: () => {
+        this.snackBar.open('Persona creada exitosamente', 'Cerrar', {
+          //verticalPosition: 'top',
+          panelClass: ['snackbar'],
+          duration: 3000
+        });
+        this.router.navigate(['/persons']);
+      },
+      error: (error) => {
+        this.snackBar.open('Error al crear la película', 'Cerrar', {
+          panelClass: ['snackbar'],
+          duration: 3000
+        });
+      }
+    });
   }
 
   getAllUsuarios() {
@@ -72,17 +102,5 @@ export class AgregarComponent implements OnInit{
     })
   }
 
-  constructor(private personasService: PersonasService, private router: Router) {}
 
-  agregarPersona() {
-    this.personasService.addPerson(this.nuevaPersona).subscribe(
-      (response) => {
-        console.log('Persona agregada con éxito:', response);
-        this.router.navigate(['/listar']);
-      },
-      (error) => {
-        console.error('Error al agregar persona:', error);
-      }
-    );
-  }
 }
