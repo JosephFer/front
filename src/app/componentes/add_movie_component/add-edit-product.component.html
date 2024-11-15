@@ -4,13 +4,16 @@
             <div class="card-header text-center">Agregar Pelicula</div>
             <div class="card-body">
               <form (ngSubmit)="addMovie()">
-                <input type="text" class="form-control" placeholder="nombre Pelicula" [(ngModel)]="movie.nombrePelicula" name="nombrePelicula">
-                <input type="text" class="form-control mt-2" placeholder="duracion" [(ngModel)]="movie.duracionPelicula" name="duracionPelicula">
-                <input type="text" class="form-control mt-2" placeholder="id genero" [(ngModel)]="movie.idGenero" name="idGenero">
+                <input type="text" class="form-control" placeholder="Nombre de la Pelicula" [(ngModel)]="movie.nombrePelicula" name="nombrePelicula">
+                <input type="text" class="form-control mt-2" placeholder="Duracion" [(ngModel)]="movie.duracionPelicula" name="duracionPelicula">
+                <select class="form-control mt-2" [(ngModel)]="movie.idGenero" name="idGenero">
+                  <option value="" disabled selected hidden>Género</option>
+                  <option *ngFor="let genre of genres" [value]="genre.idGenero">{{ genre.nombreGenero }}</option>
+                </select>
                 <div class="row mt-3">
                   <div class="col-12 d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <button type="button" class="btn btn-success">Volver</button>
+                    <button type="button" class="btn btn-success" (click)="onNoClick()">Volver</button>
                   </div>
                 </div>
               </form>

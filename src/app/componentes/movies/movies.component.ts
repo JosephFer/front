@@ -4,9 +4,6 @@ import { MoviesService } from '../../services/api/movies/movies.service';
 import { Movie } from '../../interface/movies';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { AddEditProductComponent } from '../add_movie_component/add-edit-product.component';
-
-
 
 @Component({
   selector: 'app-movies',
