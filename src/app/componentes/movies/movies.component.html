@@ -1,34 +1,35 @@
 <div class="movie-main">
-    <h6 class="title">Peliculas</h6>
-    <button type="button" class="btn btn-primary" [routerLink]="['/add']">Agregar</button>
-    <div class="col carouselContainer">
-        <div class="row">
-            <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div *ngFor="let chunk of movieChunks; let i = index" class="carousel-item"
-                        [class.active]="i === 0">
-                        <div class="d-flex justify-content-center ">
-                            <div *ngFor="let movie of chunk" class="card mx-2" style="width: 18rem;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title">{{ movie.nombrePelicula }}</h5>
-                                    <p class="card-text">{{ movie.duracionPelicula }}<br />{{ movie.idGenero }}</p>
-                                    <button type="button" class="btn btn-primary"
-                                        [routerLink]="['/edit',movie.idPelicula]">Editar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="col-12 sub-header d-flex justify-content-between align-items-center">
+        <h6 class="title text-center flex-grow-2">Peliculas</h6>
+      <button type="button" class=" add-btn" [routerLink]="['/add']">+ Agregar</button>
+  </div>
+  <div class="col carouselContainer">
+    <div class="row">
+      <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let chunk of movieChunks; let i = index" class="carousel-item" [class.active]="i === 0">
+            <div class="d-flex justify-content-center">
+              <div *ngFor="let movie of chunk" class="card mx-2" style="width: 18rem;">
+                <img src="https://picsum.photos/400/300" class="card-img-top" alt="Imagen de película">
+                <div class="card-body text-left">
+                  <h5 class="card-title">{{ movie.nombrePelicula }}</h5>
+                  <p class="card-text">{{ movie.duracionPelicula }}<br />{{ movie.idGenero }}</p>
+                  <button type="button" class="add-btn" [routerLink]="['/edit', movie.idPelicula]">Editar</button>
                 </div>
-                <!-- Controles de navegación -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </button>
+              </div>
             </div>
+          </div>
         </div>
+        <!-- Controles de navegación -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
     </div>
+  </div>
 </div>

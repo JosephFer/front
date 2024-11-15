@@ -7,3 +7,5 @@ export const GET_MOVIE_PAGE = API_URL + 'movies/getPage';
 export const UPDATE_MOVIE = API_URL + 'movies/update';
 
 export const CREATE_MOVIE = API_URL + 'movies/addcito';
+
+export const DELETE_MOVIE = API_URL + 'movies/delete';

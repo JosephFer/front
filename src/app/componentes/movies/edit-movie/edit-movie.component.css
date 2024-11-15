@@ -23,3 +23,8 @@
 .row .col-12 .btn:last-child {
     margin-left: 5px;
 }
+
+.button1{
+    background-color: rgb(223, 79, 79);
+    color: white;
+}
