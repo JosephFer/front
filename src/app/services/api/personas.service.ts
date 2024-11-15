@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Personas } from '../../interface/Personas';
-import { GET_ALL_PERSONS, GET_PERSONS_PAGE } from '../../utilities/domains/persons/PERSONS_URls';
+import { CREATE_PERSONS, GET_ALL_PERSONS, GET_PERSONS_PAGE } from '../../utilities/domains/persons/PERSONS_URls';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,9 @@ export class PersonasService {
     return this.http.get<Personas[]>(
       GET_PERSONS_PAGE + `?page=${page}&limit=${size}`
     );
+  }
+
+  public addPerson(persona: Personas): Observable<Personas> {
+    return this.http.post<Personas>(CREATE_PERSONS, persona);
   }
 }
