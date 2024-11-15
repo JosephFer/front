@@ -7,3 +7,5 @@ export const GET_PERSONS_PAGE = API_URL + 'person/getPage';
 export const UPDATE_PERSONS = API_URL + 'person/update';
 
 export const CREATE_PERSONS = API_URL + 'person/create';
+
+export const DELETE_PERSONS = API_URL + 'person/delete';
