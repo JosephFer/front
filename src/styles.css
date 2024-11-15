@@ -3,14 +3,3 @@
 body {
   font-family: 'Outfit', sans-serif;
 }
-
-.snackbar {
-  background-color: #333 !important; /* Color de fondo */
-  color: #dd2727 !important; /* Color del texto */
-  font-size: 16px !important; /* Tamaño de la fuente */
-  text-align: center; /* Alineación del texto */
-  border-radius: 4px; /* Bordes redondeados */
-  font-family: 'Outfit', sans-serif !important; /* Asegúrate de que use la fuente global */
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
