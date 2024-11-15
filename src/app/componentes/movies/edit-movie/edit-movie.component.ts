@@ -17,6 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './edit-movie.component.css'
 })
 export class EditMovieComponent implements OnInit {
+
   genres: Genre[] = [];
   constructor(private movieService: MoviesService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) { }
 
@@ -27,12 +28,14 @@ export class EditMovieComponent implements OnInit {
     idGenero: 0,
   }
 
+  id: number | undefined;
+
   ngOnInit(): void {
     this.getGenres();
     this.route.paramMap.subscribe(params => {
-      const id = +params.get('id')!;
-      if (id) {
-        this.getMovies(id);
+      this.id = +params.get('id')!;
+      if (this.id) {
+        this.getMovies(this.id);
       }
     });
   }
@@ -69,8 +72,25 @@ export class EditMovieComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  deleteMovie():void{
-
+  deleteMovie(): void {
+    console.log(this.id);
+    this.movieService.deleteMovie(this.id!).subscribe({
+      next: (data) => {
+        this.snackBar.open('Película eliminada exitosamente', 'Cerrar', {
+          //verticalPosition: 'top',
+          panelClass: ['snackbar'],
+          duration: 3000
+        });
+        this.router.navigate(['/movies']);
+      },
+      error: (error) => {
+        this.snackBar.open('Error al eliminar la pelicula', 'Cerrar', {
+          //verticalPosition: 'top',
+          panelClass: ['snackbar'],
+          duration: 3000
+        });
+      }
+    });
   }
 
   editMovie(): void {

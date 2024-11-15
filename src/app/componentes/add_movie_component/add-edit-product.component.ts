@@ -21,11 +21,8 @@ export class AddEditProductComponent implements OnInit {
   genres: Genre[] = [];
 
   movie: Movie = {
-
     nombrePelicula: '',
-
     duracionPelicula: '',
-
     idGenero: 0
   };
 
@@ -49,7 +46,6 @@ export class AddEditProductComponent implements OnInit {
     this.movieServ.addMovie(this.movie).subscribe({
       next: () => {
         this.snackBar.open('Película creada exitosamente', 'Cerrar', {
-          //verticalPosition: 'top',
           panelClass: ['snackbar'],
           duration: 3000
         });
