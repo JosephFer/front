@@ -1,0 +1,25 @@
+<div>
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card text-white mb-3 edit-container" style="max-width: 20rem;">
+            <div class="card-header text-center">Editar Pelicula</div>
+            <div class="card-body">
+                <form (ngSubmit)="editMovie()">
+                    <input type="text" class="form-control" placeholder="Nombre de la Pelicula"
+                        [(ngModel)]="movie.nombrePelicula" name="nombrePelicula">
+                    <input type="text" class="form-control mt-2" placeholder="Duración"
+                        [(ngModel)]="movie.duracionPelicula" name="duracionPelicula">
+                    <select class="form-control mt-2" [(ngModel)]="movie.idGenero" name="idGenero">
+                        <option value="" disabled selected hidden>Género</option>
+                        <option *ngFor="let genre of genres" [value]="genre.idGenero">{{ genre.nombreGenero }}</option>
+                    </select>
+                    <div class="row mt-3">
+                        <div class="col-12 d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                            <button type="button" class="btn btn-success" (click)="onNoClick()">Volver</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

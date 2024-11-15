@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Genre } from '../../interface/genre';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -16,6 +17,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   styleUrls: ['./add-edit-product.component.css'] // Corrected from styleUrl to styleUrls
 })
 export class AddEditProductComponent implements OnInit {
+
+  genres: Genre[] = [];
 
   movie: Movie = {
 
@@ -33,7 +36,9 @@ export class AddEditProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Initialize component if needed
+    this.movieServ.getAllGenres().subscribe((data: Genre[]) => {
+      this.genres = data;
+    });
   }
 
   onNoClick(): void {
@@ -52,7 +57,6 @@ export class AddEditProductComponent implements OnInit {
       },
       error: (error) => {
         this.snackBar.open('Error al crear la película', 'Cerrar', {
-          //verticalPosition: 'top',
           panelClass: ['snackbar'],
           duration: 3000
         });
