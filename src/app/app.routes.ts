@@ -33,6 +33,13 @@ export const routes: Routes = [
     {path: 'rooms', component: SalasComponent, children: 
         [{path: 'listar', component: listarMovies}]
     },
+    {path: 'persons', component: PersonasComponent, children:
+        [{path: 'listar', component: listarPersonas},
+         {path: 'agregar', component: agregarPersonas},
+         {path: 'editar', component: editarPersonas},
+         {path: 'borrar', component: borrarPersonas}
+        ]
+    },
     {path: 'menu', component: ComidaComponent},
     {path: 'menu/add', component: AddComidaComponent},
     {path : 'menu/edit/:idMenu', component: UpdateComidaComponent},
