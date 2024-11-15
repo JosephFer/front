@@ -1,0 +1,38 @@
+<div class="container"> 
+    <h4>Listado de Personas</h4>
+</div>
+
+<button class="btn btn-primary" (click)="anteriorPagina()">Anterior</button>
+<button class="btn btn-primary mx-3" (click)="siguientePagina()">Siguiente</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">id_Persona</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col">id_Ubicacion</th>
+            <th scope="col">id_cine</th>
+            <th scope="col">id_cargo</th>
+            <th scope="col">id_usuario</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of persons_array">
+            <td>{{ person.idPersona }}</td>
+            <td>{{ person.nombrePersona }}</td>
+            <td>{{ person.fechaNacimientoPersona | date }}</td>
+            <td>{{ person.idUbicacion }}</td>
+            <td>{{ person.idCine }}</td>
+            <td>{{ person.idCargo }}</td>
+            <td>{{ person.idUsuario }}</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['editar']">Editar</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['borrar']">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="existenRegistros" class="text-muted">No hay más registros para mostrar.</p>
+

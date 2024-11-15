@@ -1,4 +1,15 @@
-<p>hola mundo</p>
-<div *ngFor="let person of persons_array; let i = index" [class.active]="i === 0">
-        <p>{{ person.nombrePersona }}</p>
+<div class="row">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Personas Component</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group me-2">    
+            <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['listar']">Listar</button>
+            <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['agregar']">Agregar</button>
+            <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['buscar']">Buscar</button>
+
+        </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
 </div>
+
