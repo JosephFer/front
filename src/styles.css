@@ -12,3 +12,5 @@ body {
   border-radius: 4px; /* Bordes redondeados */
   font-family: 'Outfit', sans-serif !important; /* Asegúrate de que use la fuente global */
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
