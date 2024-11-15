@@ -69,7 +69,7 @@ export class EditMovieComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  deleteMovie():void{
+  deleteMovie(): void {
 
   }
 
