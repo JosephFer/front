@@ -13,7 +13,7 @@
                                     <h5 class="card-title">{{ movie.nombrePelicula }}</h5>
                                     <p class="card-text">{{ movie.duracionPelicula }}<br />{{ movie.idGenero }}</p>
                                     <button type="button" class="btn btn-primary"
-                                        [routerLink]="['/edit/',movie.idPelicula]">Editar</button>
+                                        [routerLink]="['/edit',movie.idPelicula]">Editar</button>
                                 </div>
                             </div>
                         </div>
@@ -30,6 +30,5 @@
                 </button>
             </div>
         </div>
-
     </div>
 </div>

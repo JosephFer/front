@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { API_GET_SALA, API_GET_SALA_BY_CINE } from '../../utilities/domains/URLs';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_GET_SALA, API_GET_SALA_BY_CINE } from '../utilities/domains/URLs';
 
 @Injectable({
   providedIn: 'root'

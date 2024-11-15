@@ -1,7 +1,8 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { GetSalasService } from '../../services/api/get-salas.service';
+import { GetSalasService } from '../../services/get-salas.service';
+
 
 @Component({
   selector: 'app-salas',
