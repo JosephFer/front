@@ -9,6 +9,8 @@ import { UbicacionesService } from '../../../services/api/ubicaciones.service';
 import { Ubicaciones } from '../../../interface/Ubicaciones';
 import { CineService } from '../../../services/api/cine.service';
 import { Cines } from '../../../interface/Cines';
+import { UsuariosService } from '../../../services/api/usuarios.service';
+import { Usuarios } from '../../../interface/Usuarios';
 
 @Component({
   selector: 'app-agregar',
@@ -37,10 +39,20 @@ export class AgregarComponent implements OnInit{
   private cineService: CineService = inject(CineService);
   cines_array: Cines[] = [];
 
+  private usuariosService: UsuariosService = inject(UsuariosService);
+  usuarios_array: Usuarios[] = [];
+
   ngOnInit(): void {
     this.getAllCargos();
     this.getAllUbicaciones();
     this.getAllCines();
+    this.getAllUsuarios();
+  }
+
+  getAllUsuarios() {
+    this.usuariosService.getAllUsers().subscribe((data: Usuarios[]) => {
+      this.usuarios_array = data;
+    })
   }
 
   getAllCargos() {
