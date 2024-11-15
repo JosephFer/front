@@ -11,7 +11,10 @@ import { MoviesComponent } from './componentes/movies/movies.component';
 import { ComidaComponent } from './componentes/comida/comida.component';
 import { AddEditProductComponent } from './componentes/add_movie_component/add-edit-product.component';
 import { AddComidaComponent } from './componentes/comida/add-comida/add-comida.component';
+
 import { EditMovieComponent } from './componentes/movies/edit-movie/edit-movie.component';
+import { UpdateComidaComponent } from './componentes/comida/update-comida/update-comida.component';
+
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +27,7 @@ export const routes: Routes = [
     },
     {path: 'menu', component: ComidaComponent},
     {path: 'menu/add', component: AddComidaComponent},
+    {path : 'menu/edit/:idMenu', component: UpdateComidaComponent},
     {path: 'listar', component: ListarComponent},
     {path: '**', component: ErrorComponent},
 ];

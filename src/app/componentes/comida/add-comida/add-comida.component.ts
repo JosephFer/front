@@ -23,9 +23,8 @@ export class AddComidaComponent {
     idComida : 0,
     idCine : 0
   }
-  router: any;
 
-  constructor(private comidaService : ComidaService, private location: Location, private snackBar : MatSnackBar) {}
+  constructor(private comidaService : ComidaService, private location: Location, private snackBar : MatSnackBar, private router : Router) {}
 
   volver() : void {
     this.location.back();
