@@ -5,7 +5,7 @@ export interface Personas {
 
     idUbicacion: number;
     idCargo: number;
-
     idCine: number;
+
     idUsuario: number;
 }

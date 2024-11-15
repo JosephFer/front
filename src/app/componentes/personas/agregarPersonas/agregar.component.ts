@@ -7,6 +7,8 @@ import { CargoService } from '../../../services/api/cargo.service';
 import { Cargos } from '../../../interface/Cargos';
 import { UbicacionesService } from '../../../services/api/ubicaciones.service';
 import { Ubicaciones } from '../../../interface/Ubicaciones';
+import { CineService } from '../../../services/api/cine.service';
+import { Cines } from '../../../interface/Cines';
 
 @Component({
   selector: 'app-agregar',
@@ -32,9 +34,13 @@ export class AgregarComponent implements OnInit{
   private ubicacionesService: UbicacionesService = inject(UbicacionesService);
   ubicaciones_array: Ubicaciones[] = [];
 
+  private cineService: CineService = inject(CineService);
+  cines_array: Cines[] = [];
+
   ngOnInit(): void {
     this.getAllCargos();
     this.getAllUbicaciones();
+    this.getAllCines();
   }
 
   getAllCargos() {
@@ -46,6 +52,11 @@ export class AgregarComponent implements OnInit{
   getAllUbicaciones() {
     this.ubicacionesService.getAllLocation().subscribe((data: Ubicaciones[]) =>{
       this.ubicaciones_array = data;
+    })
+  }
+  getAllCines() {
+    this.cineService.getAllCinema().subscribe((data: Cines[]) =>{
+      this.cines_array = data;
     })
   }
 
