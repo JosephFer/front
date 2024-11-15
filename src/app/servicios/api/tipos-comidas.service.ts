@@ -17,34 +17,21 @@ export class TiposComidasService {
     console.log("Servicios de tipos comidas funcionando");
    }
 
-   public getComidas(page:number, tamPag:number): Observable<any>{
-    return this.http.get<any>(`${this.urlTiposComidasGet}?tamPag=${tamPag}&page=${page}`).pipe(
-      catchError(this.handleError)
-    );
+   public getTiposComidas(page:number, tamPag:number): Observable<any>{
+    return this.http.get<any>(`${this.urlTiposComidasGet}?tamPag=${tamPag}&page=${page}`);
   }
 
-  public postComidas(nuevoTipoComida:any){
-
+  public postTiposComidas(nuevoTipoComida:any):Observable<any>{
+    return this.http.post<any>(this.urlTiposComidasPost, nuevoTipoComida);
   }
 
-  public delete(id:string){
-
+  public delete(id:string):Observable<any>{
+    return this.http.delete<any>(`${this.urlTiposComidasDelete}/${id}`);
   }
 
-  public update(id:string, nuevoTipoComida:any){
-
+  public update(nuevoTipoComida:any){
+    return this.http.put<any>(this.urlTiposComidasUpdate, nuevoTipoComida);
   }
 
-   private handleError(error:HttpErrorResponse): Observable<never>{
-    let errorMessage = 'Ocurrio un error desconocido.';
-
-    if(error.error instanceof ErrorEvent){
-      errorMessage = `Error: ${error.error.message}`
-    }else{
-      errorMessage = `Código de el error: ${error.status}\nMensaje: ${error.message}`
-    }
-    console.error(errorMessage);
-
-    return throwError(()=> new Error(errorMessage));
-  }
+ 
 }

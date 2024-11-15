@@ -98,7 +98,7 @@ export class ActualizarCrearComponent implements OnInit, OnDestroy{
           if(response.creado){
             this.toast.success(response.respuesta, "Realizado");
             this.formComida.reset();
-            this.route.navigate(['/home']);
+            this.route.navigate(['/cine']);
           }else{
             this.toast.error(response.respuesta, ":(");
           }

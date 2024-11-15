@@ -37,7 +37,7 @@ constructor(private dialog:MatDialog, private toast:ToastrService, private comid
 
 fueEliminado = output<boolean>();
 
-eliminarCine(){
+eliminarComida(){
   if(!this.comida()?.idComida){
     this.toast.error("Error al tratar de eliminar", "Error!");
   }else{

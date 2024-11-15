@@ -11,6 +11,8 @@ import { TiposComidasComponent } from './pages/tipos-comidas/tipos-comidas.compo
 import { ActualizarCrearComponent } from './pages/actualizar-crear/actualizar-crear.component';
 import { ButacasComponent } from './pages/butacas/butacas.component';
 import { ActualizarCrearButacasComponent } from './pages/actualizar-crear-butacas/actualizar-crear-butacas.component';
+import { EditarComponent } from './componentes/editar/editar.component';
+import { EliminarComponent } from './componentes/eliminar/eliminar.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full' }, 
@@ -19,14 +21,21 @@ export const routes: Routes = [
         [{path: 'listar', component: ListarComponent},  {path:'agregar', component:CrearComponent}],
     },
     {path:'cine', component: CinesComponent, children:
-        [{path: 'listar', component: ListarComponent}, {path:'agregar', component:CrearComponent}]
+        [{path: 'listar', component: ListarComponent}, {path:'agregar', component:CrearComponent},
+            {path:'editar', component:EditarComponent},
+            {path:'eliminar', component:EliminarComponent},
+        ]
     },
     {path: 'comida', component: ComidasComponent},
 
     {path: 'nuevo', component:ActualizarCrearComponent},
     {path: 'nuevoB', component:ActualizarCrearButacasComponent},
 
-    {path: 'tipoComida', component: TiposComidasComponent},
+    {path: 'tiposComida', component: TiposComidasComponent, children:
+        [{path: 'listar', component: ListarComponent}, {path:'agregar', component:CrearComponent},
+            {path:'editar', component:EditarComponent},
+            {path:'eliminar', component:EliminarComponent}]
+    },
 
     {path: 'editar/:idComida', component:ActualizarCrearComponent},
 

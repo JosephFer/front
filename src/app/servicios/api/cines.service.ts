@@ -6,7 +6,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GetCinesService {
+export class CinesService {
 
 
   public urlCinesGet: string = API_GET_CINE;
@@ -19,34 +19,20 @@ export class GetCinesService {
    }
    
    public getCines(page:number, tamPag:number): Observable<any>{
-    return this.http.get<any>(`${this.urlCinesGet}?tamPag=${tamPag}&page=${page}`).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<any>(`${this.urlCinesGet}?tamPag=${tamPag}&page=${page}`);
+    
   }
 
-  public postCines(nuevoEstudiante:any){
-
+  public postCines(nuevoEstudiante:any): Observable<any>{
+    return this.http.post<any>(`${this.urlCinesPost}`, nuevoEstudiante);
   }
 
-  public updateCines(id: string, nuevoEstudiante:any){
-
+  public updateCines(nuevoEstudiante:any): Observable<any>{
+    return this.http.put<any>(`${this.urlCinesUpdate}`, nuevoEstudiante);
   }
 
-  public deleteCines(id: string){
-
+  public deleteCines(id: string):Observable<any>{
+    return this.http.delete<any>(`${this.urlCinesDelete}/${id}`);
   }
 
-
-   private handleError(error:HttpErrorResponse): Observable<never>{
-    let errorMessage = 'Ocurrio un error desconocido.';
-
-    if(error.error instanceof ErrorEvent){
-      errorMessage = `Error: ${error.error.message}`
-    }else{
-      errorMessage = `Código de el error: ${error.status}\nMensaje: ${error.message}`
-    }
-    console.error(errorMessage);
-
-    return throwError(()=> new Error(errorMessage));
-  }
 }

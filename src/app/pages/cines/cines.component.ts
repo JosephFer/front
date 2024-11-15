@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SubMenuComponentComponent } from '../../componentes/sub-menu-component/sub-menu-component.component'; 
 import { RouterOutlet } from '@angular/router';
-import { GetCinesService } from '../../servicios/api/cines.service';
 
 @Component({
   selector: 'app-cines',

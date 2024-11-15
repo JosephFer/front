@@ -8,7 +8,7 @@ import { ListarComponent } from '../../componentes/listar/listar.component';
 @Component({
   selector: 'app-salas',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, MenuComponent, SubMenuComponentComponent, ListarComponent],
+  imports: [RouterLink, RouterOutlet, MenuComponent, SubMenuComponentComponent],
   templateUrl: './salas.component.html',
   styleUrl: './salas.component.css'
 })

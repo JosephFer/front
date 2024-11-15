@@ -1,4 +1,7 @@
 <main>
+  @if (isLoading()) {
+    <app-spinner [mensaje] = mensaje/>
+  }@else{
     <div class="table-responsive">
       <table class="table table-striped table-sm">
         <thead>
@@ -11,14 +14,23 @@
         <tbody>
             @for (item of data || []; track $index) {
               <tr>
-              @if (contexto === 'rooms') {
-                <td>{{item.idSala}}</td>
-                <td>{{item.salaCapacidad}}</td>
-                <td>{{item.idCine}}</td>
-              }@else if (contexto === 'cine') {
-                <td>{{item.idCine}}</td>
-                <td>{{item.nombreCine}}</td>
-                <td>{{item.idUbicacion}}</td>
+              @switch(contexto){
+                @case ('rooms'){
+                  <td>{{item.idSala}}</td>
+                  <td>{{item.salaCapacidad}}</td>
+                  <td>{{item.idCine}}</td>
+                }
+                @case ('cine'){
+                  <td>{{item.idCine}}</td>
+                  <td>{{item.nombreCine}}</td>
+                  <td>{{item.idUbicacion}}</td>
+                }
+                @case ('tiposComida'){
+                  <td>{{item.idTipoComida}}</td>
+                  <td>{{item.nombreTipoComida}}</td>
+                  <td>{{item.descripcion}}</td>
+                }
+                
               }
             </tr>
             }
@@ -44,4 +56,5 @@
         </button>
       </div>
     </div>
-  </main>
+  }
+</main>

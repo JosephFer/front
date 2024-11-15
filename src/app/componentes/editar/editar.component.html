@@ -1,21 +1,26 @@
 <h3>  Formulario para {{titulo}}</h3>
-@if(this.contexto === 'cine'){
+@if (this.contexto === 'cine') {
   <form [formGroup]="formCine" (ngSubmit)="onSubmit()">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Identificador de el cine</mat-label>
+          <input type="text" id="form3Example1" matInput formControlName="idCine"/>
+        </mat-form-field>
+        @if (formCine.get('idCine')?.hasError('required') && formCine.get('idCine')?.touched) {
+          <mat-error>El campo no correcto o esta vacío</mat-error> 
+        }
+      </div>
       <div class="col">
         <mat-form-field>
           <mat-label>Nombre de el cine</mat-label>
           <input type="text" id="form3Example1" matInput formControlName="nombreCine"/>
         </mat-form-field>
-        @if (formCine.get('nombreCine')?.hasError('required') && formCine.get('nombreCine')?.touched) {
+        @if(formCine.get('nombreCine')?.hasError('required') && formCine.get('nombreCine')?.touched) {
           <mat-error>El campo no correcto o esta vacío</mat-error> 
         }
       </div>
-    
     </div>
-  
-   
     <mat-form-field>
       <mat-label>Identificador de la ubicacion</mat-label>
       <input type="text" id="form3Example1" matInput formControlName="idUbicacion"/>
@@ -24,7 +29,6 @@
       <mat-error>El campo no correcto o esta vacío</mat-error> 
     }
   
-    <!-- Checkbox -->
     <div class="form-check d-flex justify-content-center mb-4">
       <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
       <label class="form-check-label" for="form2Example33">
@@ -32,15 +36,25 @@
       </label>
     </div>
   
-    <!-- Submit button -->
-    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Crear cine</button>
+    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Editar cine</button>
   
   
-  </form>
+  </form> 
+  
 }@else if(this.contexto === 'tiposComida') {
   <form [formGroup]="formTiposComidas" (ngSubmit)="onSubmit()">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
+      <div class="col">
+        <mat-form-field>
+          <mat-label>Identificador</mat-label>
+          <input type="text" id="form3Example1" matInput formControlName="idTipoComida"/>
+        </mat-form-field>
+        @if (formTiposComidas.get('idTipoComida')?.hasError('required') && formTiposComidas.get('idTipoComida')?.touched) {
+          <mat-error>El campo no correcto o esta vacío</mat-error> 
+        }
+      </div>
+
       <div class="col">
         <mat-form-field>
           <mat-label>Nombre de el tipo de comida</mat-label>
@@ -74,4 +88,5 @@
   
   </form>
 }
+
 

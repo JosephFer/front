@@ -1,0 +1,62 @@
+<main>
+    <h3>Escoge la fila que quieras eliminar</h3>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+          @for (item of columns; track $index) {
+              <th>{{item}}</th>
+          }
+        </tr>
+        </thead>
+        <tbody>
+            @for (item of data || []; track $index) {
+             
+                @switch(contexto){
+                  @case ('rooms'){
+                    <td>{{item.idSala}}</td>
+                    <td>{{item.salaCapacidad}}</td>
+                    <td>{{item.idCine}}</td>
+                  }
+                  @case ('cine'){
+                    <tr (click)="eliminarCine(item)" >
+                      <td>{{item.idCine}}</td>
+                      <td>{{item.nombreCine}}</td>
+                      <td>{{item.idUbicacion}}</td>
+                    </tr>
+                  }
+                  @case ('tiposComida'){
+                    <tr (click)="eliminarTipoComida(item)" >
+                      <td>{{item.idTipoComida}}</td>
+                      <td>{{item.nombreTipoComida}}</td>
+                      <td>{{item.descripcion}}</td>
+                    </tr>
+                     
+                  }
+                  
+                }
+            
+            }
+         
+        
+        </tbody>
+      </table>
+      <div class="pagination-container">
+        <button 
+          class="pagination-button" 
+          (click)="cambiarPagina(paginaActual - 1)" 
+          [disabled]="paginaActual === 1">
+          Anterior
+        </button>
+        
+        <span class="pagination-info">Página {{ paginaActual }}</span>
+        
+        <button 
+          class="pagination-button" 
+          (click)="cambiarPagina(paginaActual + 1)" 
+          [disabled]="paginaActual >= totalElementos / limite">
+          Siguiente
+        </button>
+      </div>
+    </div>
+  </main>
