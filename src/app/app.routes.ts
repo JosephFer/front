@@ -33,8 +33,8 @@ export const routes: Routes = [
     {path: 'persons', component: PersonasComponent, children:
         [{path: 'listar', component: listarPersonas},
          {path: 'agregar', component: agregarPersonas},
-         {path: 'editar', component: editarPersonas},
-         {path: 'borrar', component: borrarPersonas}
+         {path: 'editar/:id', component: editarPersonas},
+         {path: 'borrar/:id', component: borrarPersonas}
         ]
     },
     {path: 'menu', component: ComidaComponent},

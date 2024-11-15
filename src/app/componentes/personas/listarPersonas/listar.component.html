@@ -28,8 +28,8 @@
             <td>{{ person.idCargo }}</td>
             <td>{{ person.idUsuario }}</td>
             <td>
-                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['editar']">Editar</button>
-                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['borrar']">Borrar</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['/persons/editar',  person.idPersona ]">Editar</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['/persons/borrar']">Borrar</button>
             </td>
         </tr>
     </tbody>

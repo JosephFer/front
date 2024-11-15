@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center">
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Editar Persona</h4>
+        <form class="needs-validation" novalidate="" (ngSubmit)="editarPersona()">
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8">
+                    <label for="firstName" class="form-label">Nombre y apellido</label>
+                    <input type="text" class="form-control" id="firstName" [(ngModel)]="persona.nombrePersona" name="nombrePersona" required>
+                    <div class="invalid-feedback">
+                        Nombre válido es requerido.
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8 ">
+                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimientoPersona" [(ngModel)]="persona.fechaNacimientoPersona" required />
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8">
+                    <label for="cargo" class="form-label">Selecciona el cargo</label>
+                    <select class="form-control" id="cargo" [(ngModel)]="persona.idCargo" name="idCargo">
+                        <option *ngFor="let cargo of cargos_array" [value]="cargo.idCargo" [selected]="cargo.idCargo === persona.idCargo">{{ cargo.nombreCargo }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8">
+                    <label for="ubicacion" class="form-label">Selecciona la ubicacion</label>
+                    <select class="form-control mt-2" id="ubicacion" [(ngModel)]="persona.idUbicacion" name="idUbicacion">
+                        <option *ngFor="let ubicacion of ubicaciones_array" [value]="ubicacion.idUbicacion" [selected]="ubicacion.idUbicacion === persona.idUbicacion">{{ ubicacion.nombreUbicacion }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8">
+                    <label for="cine" class="form-label">Selecciona el cine</label>
+                    <select class="form-control mt-2" id="cine" [(ngModel)]="persona.idCine" name="idCine">
+                        <option *ngFor="let cine of cines_array" [value]="cine.idCine" [selected]="cine.idCine === persona.idCine">{{ cine.nombreCine }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-8">
+                    <label for="usuario" class="form-label">Selecciona el Usuario</label>
+                    <select class="form-control mt-2" id="usuario" [(ngModel)]="persona.idUsuario" name="idUsuario">
+                        <option *ngFor="let usuario of usuarios_array" [value]="usuario.idUsuario" [selected]="usuario.idUsuario === persona.idUsuario">{{ usuario.idUsuario }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="row g-3 justify-content-center">
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Guardar cambios</button>
+            </div>
+
+        </form>
+    </div>
+</div>
