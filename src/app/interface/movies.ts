@@ -1,6 +1,6 @@
 export interface Movie {
-    idPelicula: Number,
+    idPelicula?: number,
     nombrePelicula: String,
     duracionPelicula: String,
-    idGenero: Number,
+    idGenero: number,
 }

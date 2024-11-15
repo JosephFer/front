@@ -1,0 +1,35 @@
+.edit-container {
+    background-color: gray;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+}
+
+.row .col-12 {
+    display: flex;
+    justify-content: space-between;
+    /* Distribuye los botones en extremos separados */
+}
+
+.row .col-12 .btn {
+    flex: 1;
+    /* Permite que los botones ocupen el mismo espacio */
+}
+
+.row .col-12 .btn:first-child {
+    margin-right: 5px;
+    /* Añade margen a la derecha del primer botón */
+}
+
+.row .col-12 .btn:last-child {
+    margin-left: 5px;
+    /* Añade margen a la izquierda del último botón */
+}
+
+/*.mat-snack-bar-container {
+    z-index: 10000 !important;
+    position: fixed !important;
+    top: 0 !important;
+}*/

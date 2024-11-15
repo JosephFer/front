@@ -1,0 +1,25 @@
+.edit-container {
+    background-color: gray;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+}
+
+.row .col-12 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row .col-12 .btn {
+    flex: 1;
+}
+
+.row .col-12 .btn:first-child {
+    margin-right: 5px;
+}
+
+.row .col-12 .btn:last-child {
+    margin-left: 5px;
+}
