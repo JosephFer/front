@@ -5,15 +5,19 @@ import { ListarComponent, ListarComponent as listarMovies } from './componentes/
 import { HomeComponent } from './componentes/home/home.component';
 import { MoviesComponent } from './componentes/movies/movies.component';
 import { PersonasComponent } from './componentes/personas/personas.component';
+import { CinesComponent } from './componentes/cines/cines.component';
 
-
+//Componentes de Personas
 import { ListarComponent as listarPersonas } from './componentes/personas/listarPersonas/listar.component';
-import { BuscarComponent as buscarPersonas} from './componentes/personas/buscarPersonas/buscar.component';
 import { AgregarComponent as agregarPersonas } from './componentes/personas/agregarPersonas/agregar.component';
 import { EditarComponent as editarPersonas } from './componentes/personas/editarPersonas/editar.component';
 import { BorrarComponent as borrarPersonas } from './componentes/personas/borrarPersonas/borrar.component';
 
-
+//Componentes de Cines
+import { ListarCineComponent, ListarCineComponent as listarCines } from './componentes/cines/listar-cine/listar-cine.component';
+import { AgregarCineComponent } from './componentes/cines/agregar-cine/agregar-cine.component'; 
+import { EditarCineComponent } from './componentes/cines/editar-cine/editar-cine.component'; 
+import { BorrarCineComponent } from './componentes/cines/borrar-cine/borrar-cine.component'; 
 
 import { ComidaComponent } from './componentes/comida/comida.component';
 import { AddEditProductComponent } from './componentes/add_movie_component/add-edit-product.component';
@@ -38,6 +42,12 @@ export const routes: Routes = [
         ]
     },
     {path: 'menu', component: ComidaComponent},
+    {path: 'cines', component: CinesComponent, children:[
+        {path: 'listar', component: ListarCineComponent},
+        {path: 'agregar', component: AgregarCineComponent},
+        {path: 'editar/:id', component: EditarCineComponent},
+        {path: 'borrar/:id', component: BorrarCineComponent},
+    ]},
     {path: 'menu/add', component: AddComidaComponent},
     {path : 'menu/edit/:idMenu', component: UpdateComidaComponent},
     {path: 'listar', component: ListarComponent},

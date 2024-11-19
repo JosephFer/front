@@ -1,1 +1,33 @@
-<p>listar-cine works!</p>
+<div class="container"> 
+    <h4>Listado de Cines</h4>
+
+
+<button class="btn btn-primary" (click)="anteriorPagina()">Anterior</button>
+<button class="btn btn-primary mx-3" (click)="siguientePagina()">Siguiente</button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">id_cine</th>
+            <th scope="col">Nombre Cine</th>
+            <th scope="col">id_Ubicacion</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cines of cines_array">
+            <td>{{ cines.idCine }}</td>
+            <td>{{ cines.nombreCine }}</td>
+            <td>{{ cines.idUbicacion }}</td>
+            <td>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['/cines/editar',  cines.idCine ]">Editar</button>
+                <button type="button" class="btn btn-sm btn-outline-primary" [routerLink]="['/cines/borrar', cines.idCine]">Borrar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="existenRegistros" class="text-muted">No hay más registros para mostrar.</p>
+
+</div>
+
+
