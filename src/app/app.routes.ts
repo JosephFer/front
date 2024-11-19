@@ -20,6 +20,8 @@ import { AddEditProductComponent } from './componentes/add_movie_component/add-e
 import { AddComidaComponent } from './componentes/comida/add-comida/add-comida.component';
 import { EditMovieComponent } from './componentes/movies/edit-movie/edit-movie.component';
 import { UpdateComidaComponent } from './componentes/comida/update-comida/update-comida.component';
+import { FunctionsComponent } from './componentes/functions/functions.component';
+import { EditComponent } from './componentes/functions/edit/edit.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -41,6 +43,8 @@ export const routes: Routes = [
     {path: 'menu/add', component: AddComidaComponent},
     {path : 'menu/edit/:idMenu', component: UpdateComidaComponent},
     {path: 'listar', component: ListarComponent},
+    {path: 'functions',component: FunctionsComponent},
+    {path: 'functions/edit/:id', component: EditComponent},
     {path: '**', component: ErrorComponent},
 ];
 

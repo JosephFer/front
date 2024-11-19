@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-lg-4 offset-lg-4">
+    <div class="card text-white mb-3 edit-container" style="max-width: 20rem;">
+      <div class="card-header text-center">Editar Función</div>
+      <div class="card-body">
+        <form (ngSubmit)="editFunction()">
+          <div class="form-group">
+            <label for="sala">Sala</label>
+            <select id="sala" class="form-control" [(ngModel)]="funcion.idSala" name="salaId" required>
+              <option value="" disabled selected hidden>Seleccione una sala</option>
+              <option *ngFor="let sala of salas" [value]="sala.idSala">{{ sala.idSala }}</option>
+            </select>
+          </div>
+          <div class="form-group mt-2">
+            <label for="horario">Horario</label>
+            <select id="horario" class="form-control" [(ngModel)]="funcion.idHorario" name="horarioId" required>
+              <option value="" disabled selected hidden>Seleccione un horario</option>
+              <option *ngFor="let horario of horarios" [value]="horario.idHorario">{{ horario.hora }}</option>
+            </select>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary">Aceptar</button>
+              <button type="button" class="btn btn-success" (click)="onNoClick()">Volver</button>
+            </div>
+            <div class="deletebtn col-12 mt-2 ml-4 mr-4 max-width d-flex justify-content-center">
+                <button type="button" class="btn button1" (click)="deleteFunction()">Eliminar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

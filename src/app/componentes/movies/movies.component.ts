@@ -38,10 +38,6 @@ export class MoviesComponent implements OnInit {
     });
   }
 
-  editarPelicula(): void {
-
-  }
-
 
   chunkMovies(): void {
     for (let i = 0; i < this.mov_array.length; i += 5) {
