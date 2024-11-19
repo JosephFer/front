@@ -7,3 +7,5 @@ export const GET_CINES_PAGE = API_URL + 'cinema/getPage';
 export const UPDATE_CINES = API_URL + 'cinema/update';
 
 export const CREATE_CINES = API_URL + 'cinema/create';
+
+export const DELETE_CINES = API_URL + 'cinema/delete';
